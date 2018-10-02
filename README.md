@@ -1,2 +1,2 @@
 # csv-order
-payment order .txt to .csv
+statement file .txt to .csv
