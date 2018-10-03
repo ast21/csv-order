@@ -1,4 +1,5 @@
-var no = 1,
+var i = 0,
+    no = 1,
     csv =   "1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19\n" + 
             "№;Документ;Номер;Дата;Сумма;Назначение Платежа;Плательщик;Плательщик ИНН;" + 
             "Плательщик Счет;Плательщик Банк;Плательщик БИК;Получатель;Получатель ИНН;" + 
@@ -27,7 +28,7 @@ document.getElementById('file1').addEventListener('change', function (e) {
 
 // форматируем txt в csv
 function formattedTxtInCsv(txt) {
-    paymentOrder = txt.split("СекцияДокумент");
+    var paymentOrder = txt.split("СекцияДокумент");
     // extractAccountData(paymentOrder[0]);
     for ( i=1; i<paymentOrder.length; i++ ) {
         csv = csv + i + ";";
@@ -57,7 +58,7 @@ function extractPaymentOrder(paymentOrder) {
         viewPayments = extractBetween(paymentOrder, "ВидПлатежа", "ДатаСписано"),
         dateWrittenOff = extractBetween(paymentOrder, "ДатаСписано", "ДатаПоступило"),
         dateReceived = extractBetween(paymentOrder, "ДатаПоступило", "ПолучательБанк1");
-    // console.log(paymentOrder.substring(0, 1));
+    // console.log(paymentOrder.substring(0, 1)); 
     // console.log(viewPayments + "|" + dateWrittenOff + "|" + dateReceived);
     csv = csv +  "'" + documentType + ";'" + number + ";'" + date + ";'" + amount + ";'" + purposeOfPayment + ";'" + payer + ";'" + payerINN + ";'" + payerAccount + ";'" + payerBank + ";'" + payerBIK + ";'" + recipient + ";'" + recipientINN + ";'" + recipientAccount + ";'" + recipientBank + ";'" + recipientBIK + ";'" + viewPayments + ";'" + dateWrittenOff + ";'" + dateReceived + "\n";
 }
@@ -80,8 +81,8 @@ function extractBetween(txt, label1, label2) {
     }
     return value;
 }
-var re = function paymentOrder() {}
-replaceDate = (paymentOrder) => {
+
+function replaceDate(paymentOrder) {
 
     paymentOrder = replaceCRLF(paymentOrder);
     // console.log(paymentOrder);
