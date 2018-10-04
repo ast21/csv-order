@@ -132,3 +132,8 @@ function replaceCRLF(txt) {
     var pattern = /\r\n|\r|\n/g;
     return txt.replace(pattern,"\n");
 }
+
+function testConsole(awesome) {
+    console.log(awesome);
+    return awesome;
+}
