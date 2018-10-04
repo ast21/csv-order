@@ -133,7 +133,7 @@ function replaceCRLF(txt) {
     return txt.replace(pattern,"\n");
 }
 
-function testConsole(awesome) {
-    console.log(awesome);
-    return awesome;
+function testAddFunction(awesomeParameter) {
+    alert(awesomeParameter);
+    return awesomeParameter;
 }
